@@ -54,7 +54,7 @@ def get_updates(config):
             elif operation == 'random_email':
                 for field in listify(details):
                     updates.append("`%s` = CONCAT(id, '_', '%s', '@test.mercurytide.co.uk')"
-                                   % field, table)
+                                   % (field, table))
             elif operation == 'random_username':
                 for field in listify(details):
                     updates.append("`%s` = CONCAT('_user_', id)" % field)

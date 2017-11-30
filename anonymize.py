@@ -60,7 +60,7 @@ def get_updates(config):
                     updates.append("`%s` = CONCAT('_user_', id)" % field)
             elif operation == 'field_id':
                 for field in listify(details):
-                    updates.append("'%s' = CONCAT('%s/', id)" % field)
+                    updates.append("'%(field)s' = CONCAT('%(field)s/', id)" % dict(field=field))
             elif operation == 'random_date':
                 for field in listify(details):
                     updates.append("'%s' = DATE_ADD(DATE_ADD(CONCAT(ROUND(RAND() * (YEAR(CURDATE()) - 1970) + 1970), '-01-01 00:00:00'), INTERVAL ROUND(RAND() * 364) DAY), INTERVAL ROUND(RAND() * 86399) SECOND)" % field)

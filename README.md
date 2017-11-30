@@ -3,6 +3,8 @@
 Developers can benefit from having real data when they are
 developing.  This script can do a few things (see `anonymize.yml`):
 
+Just copy the example.yml to anonymize.yml or make one from scratch and run it!
+
 ### Operations
 
 * **truncate**: Deletes all rows in the table

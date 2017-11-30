@@ -1,6 +1,6 @@
 # Mysql Anonymous
 
-Contributors can benefit from having real data when they are
+Developers can benefit from having real data when they are
 developing.  This script can do a few things (see `anonymize.yml`):
 
 ### Operations
@@ -15,6 +15,8 @@ developing.  This script can do a few things (see `anonymize.yml`):
 * **random_phonenumber**: Generates a random phone number with an Edinburgh area code
 * **hash_value**: Sets the value to an MD5 hashed version of the original value
 * **hash_email**: Sets the value to an MD5 hashed version of the original value as an email i.e. 7815696ecbf1c96e6894b779456d330e@test.mercurytide.co.uk
+
+### Features
 
 * Truncate any tables (logs, and other cruft which may have sensitive data)
 * Nullify fields (emails, passwords, etc)

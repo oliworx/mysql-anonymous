@@ -63,9 +63,6 @@ def get_updates(config):
                     updates.append("'%s' = CONCAT('%s/', id)" % field)
             elif operation == 'random_date':
                 for field in listify(details):
-                    updates.append("'%s' = DATE_ADD(CONCAT(ROUND(RAND() * (YEAR(CURDATE()) - 1970) + 1970), '-01-01'), INTERVAL ROUND(RAND() * 364) DAY)" % field)
-            elif operation == 'random_datetime':
-                for field in listify(details):
                     updates.append("'%s' = DATE_ADD(DATE_ADD(CONCAT(ROUND(RAND() * (YEAR(CURDATE()) - 1970) + 1970), '-01-01 00:00:00'), INTERVAL ROUND(RAND() * 364) DAY), INTERVAL ROUND(RAND() * 86399) SECOND)" % field)
             elif operation == 'random_phonenumber':
                 for fields in listify(details):

@@ -61,6 +61,9 @@ def get_updates(config):
             elif operation == 'field_id':
                 for field in listify(details):
                     updates.append("'%s' = CONCAT('%s/', id)" % field)
+            elif operation == 'random_date':
+                for field in listify(details):
+                    updates.append("'%s' = DATE_ADD(CONCAT(ROUND(RAND() * (YEAR(CURDATE()) - 1970)) + 1970, '-01-01'), INTERVAL (RAND() * 364) DAY)" % field)
             elif operation == 'hash_value':
                 for field in listify(details):
                     updates.append("`%(field)s` = MD5(CONCAT(@common_hash_secret, `%(field)s`))"

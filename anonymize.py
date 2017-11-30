@@ -60,13 +60,13 @@ def get_updates(config):
                     updates.append("`%s` = CONCAT('_user_', id)" % field)
             elif operation == 'field_id':
                 for field in listify(details):
-                    updates.append("'%(field)s' = CONCAT('%(field)s/', id)" % dict(field=field))
+                    updates.append("`%(field)s` = CONCAT('%(field)s/', id)" % dict(field=field))
             elif operation == 'random_date':
                 for field in listify(details):
-                    updates.append("'%s' = DATE_ADD(DATE_ADD(CONCAT(ROUND(RAND() * (YEAR(CURDATE()) - 1970) + 1970), '-01-01 00:00:00'), INTERVAL ROUND(RAND() * 364) DAY), INTERVAL ROUND(RAND() * 86399) SECOND)" % field)
+                    updates.append("`%s` = DATE_ADD(DATE_ADD(CONCAT(ROUND(RAND() * (YEAR(CURDATE()) - 1970) + 1970), '-01-01 00:00:00'), INTERVAL ROUND(RAND() * 364) DAY), INTERVAL ROUND(RAND() * 86399) SECOND)" % field)
             elif operation == 'random_phonenumber':
                 for fields in listify(details):
-                    updates.append("'%s' = CONCAT('0131 ', LPAD(ROUND(RAND() * 999), 3, 0), ' ', LPAD(ROUND(RAND() * 9999), 4, 0))" % field)
+                    updates.append("`%s` = CONCAT('0131 ', LPAD(ROUND(RAND() * 999), 3, 0), ' ', LPAD(ROUND(RAND() * 9999), 4, 0))" % field)
             elif operation == 'hash_value':
                 for field in listify(details):
                     updates.append("`%(field)s` = MD5(CONCAT(@common_hash_secret, `%(field)s`))"

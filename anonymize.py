@@ -45,6 +45,12 @@ def get_updates(config):
             if operation == 'nullify':
                 for field in listify(details):
                     updates.append("`%s` = NULL" % field)
+            elif operation == 'empty_string':
+                for field in listify(details):
+                    updates.append("`%s` = ''" % field)
+            elif operation == 'fixed_string':
+                for field, val in details.items():
+                    updates.append("`%s` = '%s'" % (field, val))
             elif operation == 'random_int':
                 for field in listify(details):
                     updates.append("`%s` = ROUND(RAND()*1000000)" % field)

@@ -18,6 +18,9 @@ This script can do a few things (see `anonymize.yml`):
 * **hash_email**: Sets the value to an MD5 hashed version of the original value as an email i.e. `7815696e@example.com`
 * **empty_string**: Sets the value to an empty string
 * **fixed_string**: Sets the value to an fixed string
+* **overwrite_numbers**: Overwrite all numbers 0-9 with a given character
+* **overwrite_letters**: Overwrite all letters with a given character
+* **overwrite_chars**: Overwrite numbers and letters with a given character
 
 ### Features
 

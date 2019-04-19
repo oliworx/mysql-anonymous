@@ -51,6 +51,15 @@ def get_updates(config):
             elif operation == 'fixed_string':
                 for field, val in details.items():
                     updates.append("`%s` = '%s'" % (field, val))
+            elif operation == 'overwrite_numbers':
+                for field, val in details.items():
+                    updates.append("`%s` = REGEXP_REPLACE(`%s`,'[0-9]','%s')" % (field, field, val))
+            elif operation == 'overwrite_letters':
+                for field, val in details.items():
+                    updates.append("`%s` = REGEXP_REPLACE(`%s`,'[A-Z]','%s')" % (field, field, val))
+            elif operation == 'overwrite_chars':
+                for field, val in details.items():
+                    updates.append("`%s` = REGEXP_REPLACE(`%s`,'[A-Z0-9]','%s')" % (field, field, val))
             elif operation == 'random_int':
                 for field in listify(details):
                     updates.append("`%s` = ROUND(RAND()*1000000)" % field)
